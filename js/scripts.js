@@ -7,7 +7,7 @@ async function convertValues(){
     const currencyValueToConvert = document.querySelector(".currency-value-to-convert");
     const currencyValueConverted = document.querySelector(".currency-value");
 
-    const data = await fetch(" https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL").then(response => response.json())
+    const data = await fetch("https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL").then(response => response.json())
 
     const dollar = data.USDBRL.high
     const euro = data.EURBRL.high
@@ -37,21 +37,21 @@ async function convertValues(){
         currencyValueConverted.innerHTML = new Intl.NumberFormat("pt-BR", {
            style: "currency",
            currency: "BRL"
-       }).format(inputCurrencyValue * realToday);
+       }).format(inputCurrencyValue * real);
     }
 
     if (currencySelect.value == "euro"){
         currencyValueConverted.innerHTML = new Intl.NumberFormat("de-DE", {
            style: "currency",
            currency: "EUR"
-       }).format(inputCurrencyValue / euroToday); 
+       }).format(inputCurrencyValue / euro); 
     }
 
     if (currencySelect.value == "dollar"){
         currencyValueConverted.innerHTML = new Intl.NumberFormat("en-US", {
            style: "currency",
            currency: "USD"
-       }).format(inputCurrencyValue / dollarToday);
+       }).format(inputCurrencyValue / dollar);
     }
 
 }
